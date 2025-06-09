@@ -7,8 +7,8 @@ if (input.toLowerCase() === "new") {
     todo_list.push(new_item);
 } else if (input.toLowerCase() === "list") {
     console.log("**********")
-    for (item of todo_list){
-        console.log(`${todo_list.indexOf(item)} : ${item}`);
+    for (let i = 0; i < todo_list.length; i++){
+        console.log(`${i} : ${todo_list[i]}`);
     }
     console.log("**********")
 } else if (input.toLowerCase() === "delete") {
@@ -23,7 +23,7 @@ if (input.toLowerCase() === "new") {
     console.log("Goodbye")
 }
 else {
-    input = prompt("What would you like to do?")
+    alert("Not a valid command.")
 }
 input = prompt("What would you like to do?")
-}
+} 
