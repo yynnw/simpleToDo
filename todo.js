@@ -1,4 +1,17 @@
 const todo_list = [];
+const todoUL = document.querySelector('#todo-list');
+
+function updateList() {
+    todoUL.innerHTML = "";
+for (let item of todo_list) {
+const todoLI = document.createElement('li')
+todoLI.textContent = `${item}`;
+todoUL.append(todoLI);
+}
+}
+ 
+
+
 
 let input = prompt("What would you like to do?")
 while (input.toLowerCase() !== "quit"){
@@ -8,9 +21,7 @@ if (input.toLowerCase() === "new") {
     console.log(`${new_item} added to the list`)
 } else if (input.toLowerCase() === "list") {
     console.log("**********")
-    for (let i = 0; i < todo_list.length; i++){
-        console.log(`${i} : ${todo_list[i]}`);
-    }
+    todo_list.forEach((item, i) => console.log(`${i} : ${item}`));
     console.log("**********")
 } else if (input.toLowerCase() === "delete") {
     const to_delete = parseInt(prompt("Enter item number to delete:"));
@@ -32,4 +43,7 @@ else {
     alert("Not a valid command.")
 }
 input = prompt("What would you like to do?")
-} 
+}
+updateList();
+
+
